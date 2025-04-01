@@ -1,0 +1,78 @@
+import pygame
+import math
+
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Spring Scene")
+
+clock = pygame.time.Clock()
+running = True
+
+while running:
+    clock.tick(60)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    mouse_pos = pygame.mouse.get_pos()
+    print("mouse pos:", mouse_pos)
+    # Sky
+    screen.fill((135, 206, 235))
+
+    # Grass
+    pygame.draw.rect(screen, (60, 179, 113), (0, 400, 800, 200))
+
+    # Sun
+    pygame.draw.circle(screen, (255, 223, 0), (700, 100), 50)
+
+    # Rainbow 
+    pygame.draw.arc(screen, (255, 0, 0), (200, 200, 400, 400), 0, math.pi, 10)
+    pygame.draw.arc(screen, (255, 127, 0), (210, 210, 380, 380), 0, math.pi, 10)
+    pygame.draw.arc(screen, (255, 255, 0), (220, 220, 360, 360), 0, math.pi, 10)
+    pygame.draw.arc(screen, (105, 255, 5), (230, 230, 340, 340), 0, math.pi, 10)
+    pygame.draw.arc(screen, (6, 42, 204), (240, 240, 320, 320), 0, math.pi, 10)
+    pygame.draw.arc(screen, (112, 2, 63), (250, 250, 300, 300), 0, math.pi, 10)
+    pygame.draw.arc(screen, (179, 2, 214), (260, 260, 280, 280), 0, math.pi, 10)
+
+    # Flower 1
+    pygame.draw.circle(screen, (255, 105, 180), (90, 450), 10)
+    pygame.draw.circle(screen, (255, 105, 180), (110, 450), 10)
+    pygame.draw.circle(screen, (255, 105, 180), (100, 440), 10)
+    pygame.draw.line(screen, (0, 100, 0), (100, 460), (100, 500), 3)
+    pygame.draw.circle(screen, (255, 105, 180), (100, 460), 10)
+    pygame.draw.circle(screen, (255, 255, 0), (100, 450), 8)
+    
+
+    #Flower 2
+    pygame.draw.circle(screen, (255, 105, 180), (180, 470), 10)
+    pygame.draw.circle(screen, (255, 105, 180), (200, 470), 10)
+    pygame.draw.circle(screen, (255, 105, 180), (190, 460), 10)
+    pygame.draw.line(screen, (0, 100, 0), (190, 480), (190, 520), 3)
+    pygame.draw.circle(screen, (255, 105, 180), (190, 480), 10)
+    pygame.draw.circle(screen, (255, 255, 0), (190, 470), 8)
+    
+
+    # Bee 1
+    pygame.draw.ellipse(screen, (255, 215, 0), (150, 200, 30, 20))
+    pygame.draw.line(screen, (0, 0, 0), (155, 200), (155, 220), 2)
+    pygame.draw.line(screen, (0, 0, 0), (165, 200), (165, 220), 2)
+    pygame.draw.ellipse(screen, (255, 255, 255), (155, 190, 10, 15))
+    pygame.draw.ellipse(screen, (255, 255, 255), (165, 190, 10, 15))
+    #bee 2
+    pygame.draw.ellipse(screen, (255, 215, 0), (250, 150, 30, 20))
+    pygame.draw.line(screen, (0, 0, 0), (255, 150), (255, 170), 2)
+    pygame.draw.line(screen, (0, 0, 0), (265, 150), (265, 170), 2)
+    pygame.draw.ellipse(screen, (255, 255, 255), (255, 140, 10, 15))
+    pygame.draw.ellipse(screen, (255, 255, 255), (265, 140, 10, 15))
+
+    #sun beams
+    pygame.draw.line(screen, (255, 223, 0), (700, 20), (700, 180), 10)
+    pygame.draw.line(screen, (255, 223, 0), (620, 100), (780, 100), 10)
+    pygame.draw.line(screen, (255, 223, 0), (650, 48), (750, 148), 10)
+    pygame.draw.line(screen, (255, 223, 0), (750, 48), (650, 148), 10)
+
+    pygame.display.flip()
+
+
+
+pygame.quit()
